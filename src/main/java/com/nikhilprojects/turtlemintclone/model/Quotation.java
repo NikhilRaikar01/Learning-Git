@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Quotation {
     @Id
-    private long requestId;
+    private String requestId;
     @NotBlank
     @Size(max=100)
     private String vertical;
@@ -26,7 +26,7 @@ public class Quotation {
     private String vehicleModel;
     private List<Insurer> supportedInsurers;
 
-    public Quotation(long requestId, String vertical, String vehicleMake, String vehicleModel, List<Insurer> supportedInsurers) {
+    public Quotation(String requestId, String vertical, String vehicleMake, String vehicleModel, List<Insurer> supportedInsurers) {
         this.requestId = requestId;
         this.vertical = vertical;
         this.vehicleMake = vehicleMake;

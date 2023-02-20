@@ -20,30 +20,30 @@ public class QuotationService {
     @Autowired
     ProfileRepository profileRepository;
 
-    public Quotation addQuotation(Quotation quotation)
-    {
-        long id = Math.round(Math.random() * 1e5);
-        while(getQuoteById(id).isPresent()){
-            id = Math.round(Math.random() * 1e5);
-        }
-        quotation.setRequestId(id);
-        quotationRepository.save(quotation);
-        return quotationRepository.save(quotation);
-    }
+//    public Quotation addQuotation(Quotation quotation)
+//    {
+//        long id = Math.round(Math.random() * 1e5);
+//        while(getQuoteById(id).isPresent()){
+//            id = Math.round(Math.random() * 1e5);
+//        }
+//        quotation.setRequestId(id);
+//        quotationRepository.save(quotation);
+//        return quotationRepository.save(quotation);
+//    }
     public List<Quotation> getAllQuotes()
     {
         return quotationRepository.findAll();
     }
-    public Optional<Quotation> getQuoteById(Long id)
-    {
-        return quotationRepository.findById(id);
-    }
+//    public Optional<Quotation> getQuoteById(Long id)
+//    {
+//        return quotationRepository.findById(id);
+//    }
 
 
-    public void deleteQuote(Long id)
-    {
-        quotationRepository.deleteById( id);
-    }
+//    public void deleteQuote(Long id)
+//    {
+//        quotationRepository.deleteById( id);
+//    }
 
     public List<Insurer> getSupportedInsurers(Long id)
     {

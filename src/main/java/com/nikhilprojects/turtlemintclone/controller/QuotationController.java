@@ -25,35 +25,35 @@ public class QuotationController {
         return quotationService.getSupportedInsurers(id);
     }
 
-    @PostMapping("/quotes")
-    public String createQuotation(@RequestBody Quotation quotation){
-        quotationService.addQuotation(quotation);
-        return "Created Quote with id = " + quotation.getRequestId();
-    }
+//    @PostMapping("/quotes")
+//    public String createQuotation(@RequestBody Quotation quotation){
+//        quotationService.addQuotation(quotation);
+//        return "Created Quote with id = " + quotation.getRequestId();
+//    }
 
     @GetMapping("/quotes")
     public List<Quotation> getAllQuotes(){
-        return quotationRepository.findAll();
+        return quotationService.getAllQuotes();
     }
 
-    @PutMapping("/quotes/{requestId}")
-    public ResponseEntity<Quotation> updateQuotation(@PathVariable long requestId, @RequestBody Quotation quotedetails) throws ResourceNotFoundException {
-        Quotation updateQuote = quotationRepository.findById(requestId).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id: " + requestId));
+//    @PutMapping("/quotes/{requestId}")
+//    public ResponseEntity<Quotation> updateQuotation(@PathVariable long requestId, @RequestBody Quotation quotedetails) throws ResourceNotFoundException {
+//        Quotation updateQuote = quotationRepository.findById(requestId).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id: " + requestId));
+//
+//        updateQuote.setVertical(quotedetails.getVertical());
+//        updateQuote.setVehicleMake(quotedetails.getVehicleMake());
+//        updateQuote.setVehicleModel(quotedetails.getVehicleModel());
+//
+//        quotationRepository.save(updateQuote);
+//
+//        return ResponseEntity.ok(updateQuote);
+//    }
 
-        updateQuote.setVertical(quotedetails.getVertical());
-        updateQuote.setVehicleMake(quotedetails.getVehicleMake());
-        updateQuote.setVehicleModel(quotedetails.getVehicleModel());
-
-        quotationRepository.save(updateQuote);
-
-        return ResponseEntity.ok(updateQuote);
-    }
-
-    @DeleteMapping("/quotes/{id}")
-    public String deleteQuotation(@PathVariable long id){
-        quotationService.deleteQuote(id);
-        return "Deleted Quote with id = " + id;
-    }
+//    @DeleteMapping("/quotes/{id}")
+//    public String deleteQuotation(@PathVariable long id){
+//        quotationService.deleteQuote(id);
+//        return "Deleted Quote with id = " + id;
+//    }
 
 
 }

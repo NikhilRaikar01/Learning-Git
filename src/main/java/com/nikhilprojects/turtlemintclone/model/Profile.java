@@ -20,26 +20,26 @@ public class Profile {
 	private long id;
 
 	@NotBlank
-    @Size(max=100)
-	private String Vertical;
+    @Size(max=2)
+	private String vertical;
 	@NotBlank
 	@Size(max=100)
-	private String Make;
+	private String make;
 
 	@NotBlank
     @Size(max=100)
-    @Indexed(unique=true)
-	private String Model;
+	private String model;
 
-	public Profile(String Vertical, String Make, String Model) {
-		this.Vertical = Vertical;
-		this.Make = Make;
-		this.Model = Model;
+	public Profile(long id, String vertical, String make, String model) {
+		this.id = id;
+		this.vertical = vertical;
+		this.make = make;
+		this.model = model;
 	}
 
 	@Override
 	public String toString() {
-		return "Profiles [id=" + id + ", Vertical=" + Vertical + ", Make=" + Make + ", Model" + Model
+		return "Profiles [id=" + id + ", Vertical=" + vertical + ", Make=" + make + ", Model" + model
 				+ "]";
 	}	
 }

@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface QuotationRepository extends MongoRepository<Quotation,Long> {
+public interface QuotationRepository extends MongoRepository<Quotation,String> {
     Quotation findByVerticalAndVehicleMakeAndVehicleModel(String Vertical,String vehicleMake,String vehicleModel);
 
 }

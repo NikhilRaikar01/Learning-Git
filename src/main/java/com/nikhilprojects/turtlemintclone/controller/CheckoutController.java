@@ -1,5 +1,6 @@
 package com.nikhilprojects.turtlemintclone.controller;
 
+import com.nikhilprojects.turtlemintclone.exception.ResourceNotFoundException;
 import com.nikhilprojects.turtlemintclone.model.Checkout;
 import com.nikhilprojects.turtlemintclone.repository.CheckoutRepository;
 
@@ -7,10 +8,10 @@ import com.nikhilprojects.turtlemintclone.service.CheckoutService;
 
 import com.nikhilprojects.turtlemintclone.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/turtlemint")
@@ -28,9 +29,11 @@ public class CheckoutController {
         return "checkout compelete with id: "+ id;
     }
     @GetMapping("/checkout/{id}")
-    public Optional<Checkout> GetById(@PathVariable long id)
+    public ResponseEntity<Checkout> GetById(@PathVariable long id)
+            throws ResourceNotFoundException
     {
-        return checkoutService.getById(id);
+        Checkout checkout=checkoutService.getById(id).orElseThrow(() -> new ResourceNotFoundException("Checkout not created for Profile id  :: " + id));
+        return ResponseEntity.ok().body(checkout);
     }
     @GetMapping("/checkout")
     public List<Checkout> GetAllCheckout()

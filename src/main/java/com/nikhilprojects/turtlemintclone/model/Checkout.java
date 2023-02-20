@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
-@Document(collection = "checkout3")
+@Document(collection = "checkout")
 @NoArgsConstructor
 public class Checkout {
     @Id
@@ -27,7 +27,7 @@ public class Checkout {
     @NotBlank
     private Insurer insurer;
 
-    private Profile profile;
+//    private Profile profile;
 
     public Checkout(long checkoutId, String name, String email, String phone, Insurer insurer) {
         this.checkoutId = checkoutId;
